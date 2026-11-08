@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Arrow from "../components/Arrow.astro";
 import ContactBand from "../components/ContactBand.astro";
+import CatalogCovers from "../components/CatalogCovers.astro";
 import { site } from "../data";
 ---
 
@@ -118,7 +119,7 @@ import { site } from "../data";
   </section>
   <section class="catalog-band">
     <div class="container catalog-band-grid">
-      <img class="catalog-feature-cover" src="/assets/catalogos/oficina-y-escritura-2026.jpg" alt="Portada del catálogo Oficina y Escritura 2026" width="300" height="420" loading="lazy" />
+      <CatalogCovers />
       <div>
         <h2>Catálogos y fichas técnicas</h2>
         <p>
@@ -131,27 +132,27 @@ import { site } from "../data";
     </div>
   </section>
   <section class="section container process-section">
-    <h2>Cómo solicitar una cotización</h2>
+    <h2>Cómo cotizar</h2>
     <ol class="process-list">
       <li>
         <span>01</span>
-        <h3>Envía tu requerimiento</h3>
+        <h3>Envía tu solicitud</h3>
         <p>
-          Indica el producto o servicio, la cantidad y la fecha de entrega.
+          Indica qué necesitas, cuánto y para cuándo.
         </p>
       </li>
       <li>
         <span>02</span>
         <h3>Revisa las opciones</h3>
         <p>
-          Ventas revisa contigo los materiales, acabados y disponibilidad.
+          Confirma materiales y disponibilidad con ventas.
         </p>
       </li>
       <li>
         <span>03</span>
         <h3>Recibe tu cotización</h3>
         <p>
-          El equipo comercial prepara una propuesta según tu requerimiento.
+          Recibe el precio y el plazo estimado.
         </p>
       </li>
     </ol>

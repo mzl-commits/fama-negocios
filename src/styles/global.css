@@ -533,13 +533,6 @@ textarea:focus-visible {
   align-items: center;
   gap: 100px;
 }
-.catalog-feature-cover {
-  width: min(220px, 100%);
-  height: auto;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  justify-self: center;
-}
 .catalog-band h2 {
   max-width: 550px;
 }
@@ -554,7 +547,6 @@ textarea:focus-visible {
   padding: 0;
   margin: 45px 0 0;
   gap: 24px;
-  counter-reset: step;
 }
 .process-list li {
   border: 1px solid var(--line);
@@ -567,8 +559,9 @@ textarea:focus-visible {
   color: var(--red);
 }
 .process-list h3 {
-  margin: 25px 0 15px;
-  font-size: 19px;
+  margin: 10px 0 8px;
+  font-size: clamp(21px, 2vw, 26px);
+  font-weight: 650;
 }
 .process-list p {
   font-size: 14px;
@@ -1342,9 +1335,6 @@ textarea:focus-visible {
   }
   .process-list {
     gap: 25px;
-  }
-  .process-list h3 {
-    font-size: 17px;
   }
   .process-list p {
     font-size: 13px;

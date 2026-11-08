@@ -1,0 +1,106 @@
+---
+import { site } from "../data";
+const covers = site.catalogs.filter((catalog) => catalog.cover);
+---
+{covers.length > 0 && (
+  <div class="catalog-covers" aria-label="Portadas de los catálogos">
+    <div class="cover-frame">
+      {covers.map((catalog, index) => (
+        <img src={catalog.cover} alt={`Portada de ${catalog.name}`} width="220" height="310" loading="lazy" hidden={index > 0} />
+      ))}
+    </div>
+    {covers.length > 1 && (
+      <div class="cover-controls" hidden>
+        <button type="button" data-previous-cover aria-label="Portada anterior">←</button>
+        <button type="button" data-toggle-covers>Pausar</button>
+        <button type="button" data-next-cover aria-label="Portada siguiente">→</button>
+      </div>
+    )}
+  </div>
+)}
+
+<script>
+  const carousel = document.querySelector<HTMLElement>(".catalog-covers");
+  const controls = carousel?.querySelector<HTMLElement>(".cover-controls");
+  const toggle = controls?.querySelector<HTMLButtonElement>("[data-toggle-covers]");
+  if (carousel && controls && toggle) {
+    const covers = Array.from(carousel.querySelectorAll("img"));
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    let paused = reducedMotion.matches;
+    let visible = false;
+    let index = 0;
+    let timer: number | undefined;
+
+    function showCover(offset: number) {
+      covers[index].hidden = true;
+      index = (index + offset + covers.length) % covers.length;
+      covers[index].hidden = false;
+    }
+
+    function syncRotation() {
+      window.clearInterval(timer);
+      toggle!.textContent = paused ? "Reproducir" : "Pausar";
+      if (visible && !paused && !document.hidden && !carousel!.matches(":hover, :focus-within")) {
+        timer = window.setInterval(() => showCover(1), 5000);
+      }
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncRotation();
+    });
+    observer.observe(carousel);
+    controls.hidden = false;
+    toggle.addEventListener("click", () => {
+      paused = !paused;
+      syncRotation();
+    });
+    controls.querySelector("[data-previous-cover]")?.addEventListener("click", () => showCover(-1));
+    controls.querySelector("[data-next-cover]")?.addEventListener("click", () => showCover(1));
+    carousel.addEventListener("mouseenter", syncRotation);
+    carousel.addEventListener("mouseleave", syncRotation);
+    carousel.addEventListener("focusin", syncRotation);
+    carousel.addEventListener("focusout", () => requestAnimationFrame(syncRotation));
+    document.addEventListener("visibilitychange", syncRotation);
+    reducedMotion.addEventListener("change", () => {
+      paused = reducedMotion.matches;
+      syncRotation();
+    });
+    syncRotation();
+  }
+</script>
+
+<style>
+  .catalog-covers {
+    width: min(220px, 100%);
+    justify-self: center;
+  }
+  .cover-frame {
+    aspect-ratio: 220 / 310;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: white;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .cover-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 4px 9px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    color: var(--wine);
+  }
+</style>
