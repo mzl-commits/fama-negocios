@@ -1,0 +1,221 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../components/Arrow.astro";
+import ContactBand from "../components/ContactBand.astro";
+import { site } from "../data";
+---
+
+<Layout title="Merchandising y comunicación visual para empresas">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <i></i> Comunicación visual · Merchandising · Espacios
+        </span>
+        <h1 data-content="home.title">
+          Merchandising y
+          <br />
+          <em>comunicación visual.</em>
+        </h1>
+        <p data-content="home.description">{site.home.description}</p>
+        <div class="hero-actions">
+          <a class="button" href="/divisiones/">
+            Explorar soluciones <Arrow />
+          </a>
+          <a class="text-link light-link" href="/contacto/">
+            Solicitar cotización <Arrow diagonal />
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img
+          data-content="home.image"
+          class="hero-photo"
+          src={site.home.image}
+          alt="Gráfica aplicada a vidrios en espacios de oficina"
+          width="700"
+          height="740"
+          fetchpriority="high"
+        />
+        <div class="image-caption">
+          <span>De tu idea al espacio real.</span>
+          <a
+            href="/divisiones/servicios-generales/"
+            aria-label="Explorar soluciones para espacios"
+          >
+            <Arrow diagonal />
+          </a>
+        </div>
+        <div class="hero-stamp">
+          La forma de
+          <br />
+          hacerte <strong>visible.</strong>
+        </div>
+      </div>
+    </div>
+    <div class="container hero-bottom">
+      <span>Soluciones B2B, atención personalizada.</span>
+      <a href="#soluciones">
+        Descubre lo que podemos hacer <span>↓</span>
+      </a>
+    </div>
+  </section>
+  <section class="section container" id="soluciones">
+    <div class="section-heading">
+      <h2>
+        Tres divisiones.
+        <br />
+        Un mundo de posibilidades.
+      </h2>
+      <p>
+        Desde la primera impresión de tu marca hasta los espacios donde crece tu
+        negocio.
+      </p>
+    </div>
+    <div class="division-list">
+      {site.divisions.map((division, i) => (
+        <a class="division-row" href={`/divisiones/${division.slug}/`}>
+          <div>
+            <h3 class="division-title" data-content={`divisions.${i}.name`}>
+              {division.name}
+            </h3>
+            <p class="division-summary" data-content={`divisions.${i}.short`}>
+              {division.short}
+            </p>
+            <p data-content={`divisions.${i}.description`}>
+              {division.description}
+            </p>
+            <span class="division-action">
+              Explorar división <Arrow />
+            </span>
+          </div>
+          <img
+            data-content={`divisions.${i}.image`}
+            src={division.image}
+            alt={division.imageAlt}
+            width="330"
+            height="200"
+            loading="lazy"
+          />
+          <span class="round-arrow">
+            <Arrow diagonal />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="about-preview">
+    <div class="container about-preview-grid">
+      <div class="about-word">
+        FAMA
+        <span>
+          Ideas. Materiales.
+          <br />
+          Posibilidades.
+        </span>
+      </div>
+      <div>
+        <h2>La creatividad cobra sentido cuando impulsa tu negocio.</h2>
+        <p>
+          Seleccionamos productos, suministros y materiales para convertir
+          necesidades de comunicación en soluciones concretas para empresas y
+          organizaciones.
+        </p>
+        <a class="text-link" href="/nosotros/">
+          Conoce FAMA <Arrow />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="section-heading">
+      <h2>Un vistazo a lo que hacemos.</h2>
+      <p>Aplicaciones y productos de nuestro archivo visual.</p>
+    </div>
+    <div class="gallery-preview">
+      {site.gallery.slice(0, 3).map((item, i) => (
+        <a
+          class={`project-preview project-${i}`}
+          href={`/proyectos/?division=${item.category}`}
+        >
+          <div class="project-image">
+            <img
+              src={item.image}
+              alt={item.title}
+              width="640"
+              height="480"
+              loading="lazy"
+            />
+            <span class="round-arrow">
+              <Arrow diagonal />
+            </span>
+          </div>
+          <h3>{item.title}</h3>
+        </a>
+      ))}
+    </div>
+    <a class="text-link" href="/proyectos/">
+      Explorar la galería <Arrow />
+    </a>
+  </section>
+  <section class="catalog-band">
+    <div class="container catalog-band-grid">
+      <div class="catalog-graphic" aria-hidden="true">
+        <div class="catalog-cover">
+          <span>
+            FAMA
+            <br />
+            NEGOCIOS
+          </span>
+          <strong>
+            Ideas para
+            <br />
+            tu próxima
+            <br />
+            campaña.
+          </strong>
+          <span>Soluciones empresariales ↗</span>
+        </div>
+      </div>
+      <div>
+        <h2>Encuentra el punto de partida para tu proyecto.</h2>
+        <p>
+          Explora nuestras líneas y solicita al equipo comercial el catálogo que
+          necesitas para tu empresa.
+        </p>
+        <a class="button button-dark" href="/catalogos/">
+          Ver catálogos <Arrow />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section container process-section">
+    <h2>Así damos forma a tu idea.</h2>
+    <ol class="process-list">
+      <li>
+        <span>01</span>
+        <h3>Cuéntanos qué necesitas</h3>
+        <p>
+          Comparte tu objetivo, el tipo de solución y los detalles de tu
+          proyecto.
+        </p>
+      </li>
+      <li>
+        <span>02</span>
+        <h3>Exploremos las opciones</h3>
+        <p>
+          El equipo comercial te orienta sobre productos, materiales y
+          posibilidades.
+        </p>
+      </li>
+      <li>
+        <span>03</span>
+        <h3>Recibe tu cotización</h3>
+        <p>
+          Evaluamos tu requerimiento para preparar una propuesta personalizada.
+        </p>
+      </li>
+    </ol>
+  </section>
+  <ContactBand />
+</Layout>

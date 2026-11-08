@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "FAMA Negocios",
+    "tagline": "Soluciones para empresas",
+    "logo": "/assets/logo.webp"
+  },
+  "home": {
+    "title": "Merchandising y comunicación visual.",
+    "description": "Comunicación visual, merchandising y soluciones para los espacios de tu empresa.",
+    "image": "/assets/espacios.webp"
+  },
+  "about": {
+    "title": "Conoce FAMA Negocios.",
+    "text": "En FAMA Negocios reunimos productos, materiales y soluciones para acompañar los objetivos de empresas y organizaciones. Nuestra propuesta conecta la comunicación visual, el merchandising y los espacios de trabajo.",
+    "approach": "Seleccionamos marcas, suministros y materiales para desarrollar propuestas con creatividad, variedad y calidad. Escuchamos lo que necesitas para orientar cada solicitud hacia la solución adecuada."
+  },
+  "contact": {
+    "email": "ventas@famanegociosperu.com",
+    "phone": "+51 719 7950",
+    "phoneHref": "+5117197950",
+    "mobile": "970 857 133",
+    "whatsapp": "51970857133",
+    "address": "Av. Antúnez de Mayolo 1422, Cercado de Lima, Perú",
+    "hours": "Lunes a viernes de 9 a. m. a 6 p. m. · Sábados de 9 a. m. a 2 p. m."
+  },
+  "divisions": [
+    {
+      "slug": "publicitaria",
+      "name": "División Publicitaria",
+      "short": "Publicidad POP y comunicación visual.",
+      "description": "Soluciones de comunicación visual para exhibir, identificar y dar presencia a tu marca en cada espacio.",
+      "image": "/assets/exhibidores.webp",
+      "imageAlt": "Exhibidores publicitarios del archivo de FAMA",
+      "services": [
+        {
+          "name": "Publicidad POP",
+          "description": "Materiales de apoyo para comunicar promociones y presentar productos en el punto de venta."
+        },
+        {
+          "name": "Displays y exhibidores",
+          "description": "Exhibidores, dispensadores y soportes para organizar la presentación de tus productos."
+        },
+        {
+          "name": "Gigantografías",
+          "description": "Impresión de gran formato para campañas, espacios comerciales y comunicación de marca."
+        },
+        {
+          "name": "Acrílicos y comunicación visual",
+          "description": "Portafolletos, señalizadores y piezas de acrílico para información y exhibición."
+        },
+        {
+          "name": "Branding en espacios",
+          "description": "Aplicaciones gráficas para acompañar la identidad visual de tu empresa."
+        }
+      ]
+    },
+    {
+      "slug": "promocional",
+      "name": "División Promocional",
+      "short": "Merchandising y regalos corporativos.",
+      "description": "Artículos personalizados, regalos corporativos e impresión para acompañar campañas y relaciones comerciales.",
+      "image": "/assets/bolsas.webp",
+      "imageAlt": "Bolsas promocionales en distintos colores",
+      "services": [
+        {
+          "name": "Merchandising",
+          "description": "Artículos promocionales y accesorios para campañas, eventos y comunicación corporativa."
+        },
+        {
+          "name": "Regalos VIP",
+          "description": "Opciones de regalos para clientes, colaboradores y ocasiones empresariales."
+        },
+        {
+          "name": "Bolsas y bolsos",
+          "description": "Bolsas, bolsos y complementos para presentar tu marca en el día a día."
+        },
+        {
+          "name": "Señalética industrial",
+          "description": "Piezas de señalización para comunicar indicaciones e identificar áreas de trabajo."
+        },
+        {
+          "name": "Sistemas de impresión",
+          "description": "Offset, serigrafía, digital, flexografía, tampografía y textil o sublimado. Consulta la técnica adecuada para tu proyecto."
+        }
+      ]
+    },
+    {
+      "slug": "servicios-generales",
+      "name": "División Servicios Generales",
+      "short": "Servicios generales para empresas.",
+      "description": "Soluciones para acondicionar, renovar y equipar los espacios donde trabaja tu empresa.",
+      "image": "/assets/espacios.webp",
+      "imageAlt": "Aplicación gráfica en ambientes de oficina",
+      "services": [
+        {
+          "name": "Acondicionamiento de oficinas",
+          "description": "Remodelación, decoración, drywall y revestimientos según las necesidades del espacio."
+        },
+        {
+          "name": "Instalaciones y equipamiento",
+          "description": "Aire acondicionado, CCTV y energía de baja tensión. Comparte tus requerimientos para evaluar el servicio."
+        },
+        {
+          "name": "Señalización y estructuras",
+          "description": "Señalización, carpintería metálica y estructuras para espacios comerciales y empresariales."
+        },
+        {
+          "name": "Soluciones para eventos",
+          "description": "Toldos, carpas, sombrillas y árboles de Navidad gigantes según requerimiento."
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Exhibición en el punto de venta",
+      "category": "publicitaria",
+      "image": "/assets/exhibidores.webp",
+      "description": "Exhibidores y soportes de presentación. Material del archivo visual de FAMA."
+    },
+    {
+      "title": "Identidad en espacios de trabajo",
+      "category": "servicios-generales",
+      "image": "/assets/espacios.webp",
+      "description": "Aplicaciones gráficas en vidrio para oficinas. Material del archivo visual de FAMA."
+    },
+    {
+      "title": "Bolsas para tu campaña",
+      "category": "promocional",
+      "image": "/assets/bolsas.webp",
+      "description": "Bolsas promocionales en distintos formatos. Material del archivo visual de FAMA."
+    },
+    {
+      "title": "Soportes para comunicación",
+      "category": "publicitaria",
+      "image": "/assets/acrilicos.webp",
+      "description": "Piezas de acrílico para presentar información. Material del archivo visual de FAMA."
+    },
+    {
+      "title": "Displays de gran formato",
+      "category": "publicitaria",
+      "image": "/assets/display.webp",
+      "description": "Sistemas de exhibición para campañas. Material del archivo visual de FAMA."
+    },
+    {
+      "title": "Gráfica aplicada a oficinas",
+      "category": "servicios-generales",
+      "image": "/assets/vidrio.webp",
+      "description": "Soluciones visuales sobre superficies de vidrio. Material del archivo visual de FAMA."
+    }
+  ],
+  "catalogs": [],
+  "starHome": {
+    "title": "Star Home",
+    "description": "Una presentación diferenciada dentro de Servicios Generales.",
+    "notice": "Estamos preparando la información de esta línea. Consulta al equipo comercial para conocer las soluciones disponibles."
+  }
+}

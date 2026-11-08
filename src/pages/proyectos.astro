@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../components/Arrow.astro";
+import ContactBand from "../components/ContactBand.astro";
+import { site } from "../data";
+---
+
+<Layout
+  title="Galería de productos y aplicaciones"
+  description="Explora productos y aplicaciones del archivo visual de FAMA Negocios."
+>
+  <section class="page-intro">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Galería</span>
+      </div>
+      <h1>Galería de productos y aplicaciones de FAMA.</h1>
+      <p>
+        Un recorrido visual por productos, materiales y aplicaciones para
+        empresas.
+      </p>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="filters" aria-label="Filtrar galería por división">
+      <button class="filter-button" data-filter="all" aria-pressed="true">
+        Todas las soluciones
+      </button>
+      {site.divisions.map((d) => (
+        <button class="filter-button" data-filter={d.slug} aria-pressed="false">
+          {d.name.replace("División ", "")}
+        </button>
+      ))}
+    </div>
+    <p class="sr-only" id="filter-status" aria-live="polite"></p>
+    <div class="gallery-grid">
+      {site.gallery.map((item) => (
+        <button
+          class="gallery-item"
+          data-category={item.category}
+          data-title={item.title}
+          data-description={item.description}
+          data-image={item.image}
+          aria-label={`Ampliar ${item.title}`}
+        >
+          <div class="project-image">
+            <img
+              src={item.image}
+              alt={item.title}
+              width="640"
+              height="480"
+              loading="lazy"
+            />
+            <span class="round-arrow">
+              <Arrow diagonal />
+            </span>
+          </div>
+          <h2>{item.title}</h2>
+          <span>
+            {site.divisions.find((d) => d.slug === item.category)?.name}
+          </span>
+        </button>
+      ))}
+    </div>
+    <p class="gallery-note">
+      Imágenes recuperadas del archivo visual de FAMA. Consulta al equipo
+      comercial la disponibilidad y las características de cada solución.
+    </p>
+  </section>
+  <dialog class="image-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button">
+      Cerrar ×
+    </button>
+    <img id="dialog-image" src="/assets/exhibidores.webp" alt="" />
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-description"></p>
+    <a class="text-link" id="dialog-quote" href="/contacto/">
+      Solicitar cotización <Arrow diagonal />
+    </a>
+  </dialog>
+  <ContactBand />
+</Layout>

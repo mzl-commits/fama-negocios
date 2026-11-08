@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Arrow from "../../components/Arrow.astro";
+import ContactBand from "../../components/ContactBand.astro";
+import { site } from "../../data";
+---
+
+<Layout
+  title="Nuestras soluciones"
+  description="Explora las divisiones Publicitaria, Promocional y Servicios Generales de FAMA Negocios."
+>
+  <section class="page-intro">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Soluciones</span>
+      </div>
+      <h1>
+        Soluciones publicitarias,
+        <br />
+        promocionales y para oficinas.
+      </h1>
+      <p>
+        Tres divisiones que conectan tu marca, tus campañas y tus espacios de
+        trabajo.
+      </p>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="division-list">
+      {site.divisions.map((d, i) => (
+        <a class="division-row" href={`/divisiones/${d.slug}/`}>
+          <div>
+            <h2 class="division-title" data-content={`divisions.${i}.name`}>
+              {d.name}
+            </h2>
+            <p class="division-summary" data-content={`divisions.${i}.short`}>
+              {d.short}
+            </p>
+            <p data-content={`divisions.${i}.description`}>{d.description}</p>
+            <span class="division-action">
+              Explorar división <Arrow />
+            </span>
+          </div>
+          <img
+            data-content={`divisions.${i}.image`}
+            src={d.image}
+            alt={d.imageAlt}
+            width="330"
+            height="200"
+            loading="lazy"
+          />
+          <span class="round-arrow">
+            <Arrow diagonal />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <ContactBand />
+</Layout>

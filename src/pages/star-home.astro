@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../components/Arrow.astro";
+import { site, whatsapp } from "../data";
+---
+
+<Layout
+  title="Star Home"
+  noindex
+  description="Consulta información de Star Home dentro de Servicios Generales de FAMA."
+>
+  <section class="page-intro">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <a href="/divisiones/servicios-generales/">Servicios Generales</a>
+        <span>/</span>
+        <span>Star Home</span>
+      </div>
+      <span class="page-kicker">Servicios Generales</span>
+      <h1 data-content="starHome.title">{site.starHome.title}</h1>
+      <p data-content="starHome.description">{site.starHome.description}</p>
+    </div>
+  </section>
+  <section class="section container compact-page">
+    <div class="star-page">
+      <h2>Conversemos sobre lo que necesitas.</h2>
+      <p data-content="starHome.notice">{site.starHome.notice}</p>
+      <a
+        class="button"
+        href={whatsapp("Hola, quisiera información sobre Star Home.")}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Consultar por WhatsApp <Arrow diagonal />
+      </a>
+    </div>
+  </section>
+</Layout>

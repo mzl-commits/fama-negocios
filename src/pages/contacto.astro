@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../components/Arrow.astro";
+import { site, whatsapp } from "../data";
+---
+
+<Layout
+  title="Contacto y cotización"
+  description="Cuéntanos qué necesita tu empresa y solicita una cotización a FAMA Negocios."
+>
+  <section class="page-intro">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Contacto</span>
+      </div>
+      <h1>
+        Contacto y cotización
+        <br />
+        para empresas.
+      </h1>
+      <p>
+        Cuéntanos qué tienes en mente. Te ayudamos a encontrar el punto de
+        partida.
+      </p>
+    </div>
+  </section>
+  <section class="section container contact-grid">
+    <div class="contact-data">
+      <h2>Hablemos de tu idea.</h2>
+      <p>
+        Comunícate con el equipo comercial o prepara tu solicitud para enviarla
+        por WhatsApp.
+      </p>
+      <dl>
+        <div>
+          <dt>Correo comercial</dt>
+          <dd>
+            <a data-contact="email" href={`mailto:${site.contact.email}`}>
+              {site.contact.email}
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt>Central</dt>
+          <dd>
+            <a data-contact="phone" href={`tel:${site.contact.phoneHref}`}>
+              {site.contact.phone}
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt>WhatsApp</dt>
+          <dd>
+            <a
+              data-contact="mobile"
+              href={whatsapp()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.contact.mobile}
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt>Encuéntranos</dt>
+          <dd data-contact="address">{site.contact.address}</dd>
+        </div>
+        <div>
+          <dt>Horario de atención</dt>
+          <dd data-contact="hours">{site.contact.hours}</dd>
+        </div>
+      </dl>
+    </div>
+    <form class="contact-form" id="quote-form">
+      <h2>¿Qué necesita tu empresa?</h2>
+      <p>Los campos marcados con * son obligatorios.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Nombre y apellido *</label>
+          <input
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+            maxlength="100"
+          />
+        </div>
+        <div class="field">
+          <label for="company">Empresa</label>
+          <input
+            id="company"
+            name="company"
+            autocomplete="organization"
+            maxlength="150"
+          />
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico *</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            maxlength="150"
+          />
+        </div>
+        <div class="field">
+          <label for="phone">Teléfono</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="30"
+          />
+        </div>
+        <div class="field full">
+          <label for="division">División de interés *</label>
+          <select id="division" name="division" required>
+            <option value="">Selecciona una división</option>
+            {site.divisions.map((d) => (
+              <option value={d.slug}>{d.name}</option>
+            ))}
+            <option value="star-home">Star Home</option>
+            <option value="orientacion">Necesito orientación</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="message">Cuéntanos sobre tu proyecto *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            minlength="10"
+            maxlength="2000"
+            placeholder="Producto o servicio, cantidad estimada, acabados y fecha en que lo necesitas."
+          ></textarea>
+        </div>
+      </div>
+      <p class="form-help">
+        Al continuar, se abrirá WhatsApp con tu solicitud preparada. Podrás
+        revisarla antes de enviarla al equipo de FAMA.
+      </p>
+      <button class="button form-submit" type="submit">
+        Continuar por WhatsApp <Arrow diagonal />
+      </button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <noscript>
+        <p>
+          Para solicitar información, escribe a{" "}
+          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> o
+          usa el botón de WhatsApp.
+        </p>
+      </noscript>
+    </form>
+  </section>
+</Layout>

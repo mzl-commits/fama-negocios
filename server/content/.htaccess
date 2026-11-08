@@ -1,0 +1,7 @@
+Options -Indexes
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+<Files "site.json">
+  Header set Cache-Control "no-cache, must-revalidate"
+</Files>

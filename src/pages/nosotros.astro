@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactBand from "../components/ContactBand.astro";
+import { site } from "../data";
+---
+
+<Layout
+  title="Nosotros"
+  description="Conoce FAMA Negocios y su enfoque en creatividad, calidad y soluciones para empresas."
+>
+  <section class="page-intro">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Nosotros</span>
+      </div>
+      <span class="page-kicker">FAMA Negocios</span>
+      <h1 data-content="about.title">{site.about.title}</h1>
+      <p>Una mirada integral a tu marca, tus campañas y tus espacios.</p>
+    </div>
+  </section>
+  <section class="section container about-main">
+    <div>
+      <h2>Conectamos necesidades con posibilidades.</h2>
+      <p data-content="about.text">{site.about.text}</p>
+      <p data-content="about.approach">{site.about.approach}</p>
+    </div>
+    <img
+      src="/assets/vidrio.webp"
+      alt="Gráfica de comunicación visual aplicada a una oficina"
+      width="640"
+      height="480"
+      loading="lazy"
+    />
+  </section>
+  <section class="section container" style="padding-top:0">
+    <h2>Lo que guía nuestro trabajo.</h2>
+    <ul class="values-list">
+      <li>
+        <h3>Creatividad e innovación</h3>
+        <p>
+          Exploramos materiales, productos y aplicaciones para responder a las
+          necesidades de cada empresa.
+        </p>
+      </li>
+      <li>
+        <h3>Calidad y compromiso</h3>
+        <p>
+          La selección de productos y materiales forma parte de nuestra manera
+          de abordar cada requerimiento.
+        </p>
+      </li>
+      <li>
+        <h3>Atención responsable</h3>
+        <p>
+          Valoramos la confidencialidad, la entrega oportuna y una comunicación
+          clara con nuestros clientes.
+        </p>
+      </li>
+    </ul>
+  </section>
+  <ContactBand />
+</Layout>

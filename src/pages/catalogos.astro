@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../components/Arrow.astro";
+import { site, whatsapp } from "../data";
+---
+
+<Layout
+  title="Catálogos por división"
+  description="Solicita los catálogos de FAMA Negocios según tu línea de interés."
+>
+  <section class="page-intro">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Catálogos</span>
+      </div>
+      <h1>
+        Catálogos de productos
+        <br />y soluciones empresariales.
+      </h1>
+      <p>
+        Elige una división y consulta los materiales disponibles para tu
+        empresa.
+      </p>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="catalog-grid" id="catalog-list">
+      {site.divisions.map((d, i) => (
+        <article class="catalog-card">
+          <img
+            data-content={`divisions.${i}.image`}
+            src={d.image}
+            alt={d.imageAlt}
+            width="350"
+            height="200"
+            loading="lazy"
+          />
+          <h2 data-content={`divisions.${i}.name`}>{d.name}</h2>
+          <p data-content={`divisions.${i}.description`}>{d.description}</p>
+          <a
+            class="text-link"
+            href={whatsapp(
+              `Hola, quisiera el catálogo vigente de la ${d.name}.`,
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Solicitar catálogo <Arrow diagonal />
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="notice">
+      <p>
+        Solicita la versión vigente al equipo comercial. Los catálogos PDF
+        aprobados se incorporarán aquí para su visualización y descarga.
+      </p>
+    </div>
+  </section>
+  <section class="section container" style="padding-top:0">
+    <div class="faq-section">
+      <h2>Antes de elegir.</h2>
+      <details>
+        <summary>¿Cómo solicito el catálogo de una división?</summary>
+        <p>
+          Selecciona «Solicitar catálogo». Se abrirá WhatsApp con un mensaje
+          dirigido al equipo comercial e indicando la división de tu interés.
+        </p>
+      </details>
+      <details>
+        <summary>¿Cómo cotizo una solución personalizada?</summary>
+        <p>
+          Comparte el tipo de producto o servicio, la cantidad estimada y las
+          características de tu proyecto en la sección de contacto. El equipo
+          evaluará tu solicitud.
+        </p>
+      </details>
+      <details>
+        <summary>¿La disponibilidad se confirma al cotizar?</summary>
+        <p>
+          Sí. Consulta con el asesor los materiales, cantidades, acabados y
+          plazos aplicables antes de confirmar tu requerimiento.
+        </p>
+      </details>
+    </div>
+  </section>
+</Layout>
