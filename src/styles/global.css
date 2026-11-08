@@ -3,11 +3,15 @@
 :root {
   --red: #b82329;
   --red-dark: #951b21;
+  --wine: #711b21;
+  --wine-deep: #371417;
+  --rose-ink: #f7e1e2;
+  --rose-panel: #fffafa;
   --ink: #202323;
   --muted: #595e5e;
   --paper: #fff;
-  --soft: #f2f3f2;
-  --line: #dce0dd;
+  --soft: #f9ebec;
+  --line: #ead2d3;
   --radius: 16px;
   --font: "Source Sans 3", Arial, sans-serif;
   --display: "Source Sans 3", Arial, sans-serif;
@@ -74,10 +78,12 @@ h1 {
   font-weight: 600;
 }
 h2 {
+  color: var(--wine);
   font-size: clamp(2rem, 3.4vw, 3.1rem);
   font-weight: 550;
 }
 h3 {
+  color: var(--wine);
   font-size: 1.3rem;
   font-weight: 550;
 }
@@ -234,9 +240,9 @@ textarea:focus-visible {
   top: 10px;
 }
 .utility {
-  background: #f2f3f2;
+  background: var(--soft);
   font-size: 11px;
-  color: #555c59;
+  color: var(--wine);
 }
 .utility .container {
   display: flex;
@@ -314,7 +320,7 @@ textarea:focus-visible {
   margin: 6px 0;
 }
 .hero {
-  background: #222626;
+  background: var(--wine);
   color: white;
   overflow: hidden;
 }
@@ -337,7 +343,7 @@ textarea:focus-visible {
   font-size: 10px;
   letter-spacing: 0.08em;
   margin-bottom: 27px;
-  color: #dce0dd;
+  color: var(--rose-ink);
 }
 .eyebrow i {
   width: 7px;
@@ -352,12 +358,12 @@ textarea:focus-visible {
   line-height: 1.12;
 }
 .hero h1 em {
-  color: #e87676;
+  color: #ffc4c6;
   font-style: normal;
 }
 .hero-copy > p {
   font-size: 16px;
-  color: #c3c9c6;
+  color: var(--rose-ink);
   max-width: 380px;
   margin-bottom: 34px;
 }
@@ -418,8 +424,8 @@ textarea:focus-visible {
   width: 132px;
   height: 132px;
   border-radius: 50%;
-  background: #ebebe5;
-  color: #262b28;
+  background: var(--soft);
+  color: var(--wine);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,7 +433,7 @@ textarea:focus-visible {
   line-height: 1.35;
   font-size: 14px;
   transform: rotate(-12deg);
-  border: 6px solid #222626;
+  border: 6px solid var(--wine);
   transition: transform 0.9s var(--ease-gentle);
 }
 .hero-visual:hover .hero-stamp {
@@ -449,12 +455,12 @@ textarea:focus-visible {
   font-size: 19px;
 }
 .hero-bottom {
-  border-top: 1px solid #4c5350;
+  border-top: 1px solid #a45f63;
   display: flex;
   justify-content: space-between;
   padding-block: 18px;
   font-size: 11px;
-  color: #c3c9c6;
+  color: var(--rose-ink);
 }
 .hero-bottom a {
   display: flex;
@@ -480,7 +486,7 @@ textarea:focus-visible {
   transition: border-color 0.5s ease;
 }
 .division-row:hover {
-  border-color: #929b96;
+  border-color: #bc777b;
 }
 .division-row p {
   font-size: 14px;
@@ -491,13 +497,13 @@ textarea:focus-visible {
   font-size: clamp(26px, 2.6vw, 34px);
   font-weight: 650;
   margin: 0 0 14px;
-  color: var(--ink);
+  color: var(--wine);
 }
 .division-row .division-summary {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.4;
-  color: #414745;
+  color: var(--muted);
   margin-bottom: 12px;
 }
 .division-action {
@@ -524,7 +530,7 @@ textarea:focus-visible {
   height: 44px;
   display: grid;
   place-items: center;
-  border: 1px solid #cbd1cd;
+  border: 1px solid var(--line);
   border-radius: 50%;
   transition:
     background 0.2s,
@@ -560,7 +566,7 @@ textarea:focus-visible {
   letter-spacing: -0.02em;
   font-weight: 500;
   margin-top: 22px;
-  color: #5a625d;
+  color: var(--wine);
 }
 .about-preview h2 {
   font-size: clamp(1.9rem, 2.7vw, 2.6rem);
@@ -609,7 +615,7 @@ textarea:focus-visible {
   margin: 16px 0;
 }
 .catalog-band {
-  background: #e9eeea;
+  background: var(--soft);
   padding-block: 60px;
   overflow: hidden;
 }
@@ -641,7 +647,7 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 12px 13px 0 #ced6cf;
+  box-shadow: 12px 13px 0 #ead2d3;
   border-right: 5px solid #fff;
   border-radius: 8px;
   transition: transform 0.9s var(--ease-gentle);
@@ -704,12 +710,13 @@ textarea:focus-visible {
   color: #f4d9da;
 }
 .band-inner h2 {
+  color: inherit;
   font-size: 32px;
   margin: 12px 0 0;
 }
 .site-footer {
-  background: #202424;
-  color: #e6e9e6;
+  background: var(--wine-deep);
+  color: var(--rose-ink);
   padding-top: 65px;
 }
 .footer-grid {
@@ -725,7 +732,7 @@ textarea:focus-visible {
   background: white;
 }
 .footer-grid p {
-  color: #b5bdb7;
+  color: var(--rose-ink);
   font-size: 13px;
   max-width: 330px;
 }
@@ -752,9 +759,9 @@ textarea:focus-visible {
 .footer-bottom {
   margin-top: 50px;
   padding-block: 20px;
-  border-top: 1px solid #414845;
+  border-top: 1px solid #74454a;
   font-size: 10px;
-  color: #b5bdb7;
+  color: var(--rose-ink);
   display: flex;
   justify-content: space-between;
 }
@@ -776,23 +783,26 @@ textarea:focus-visible {
 }
 .page-intro {
   padding-block: 65px 55px;
-  background: var(--soft);
+  background: var(--wine);
+  color: #fff;
 }
 .breadcrumb {
   font-size: 11px;
   display: flex;
   gap: 12px;
-  color: #69706a;
+  color: var(--rose-ink);
   margin-bottom: 30px;
 }
 .breadcrumb a:hover {
-  color: var(--red);
+  color: #fff;
+  text-decoration: underline;
 }
 .page-intro h1 {
   max-width: 850px;
   margin-bottom: 25px;
 }
 .page-intro p {
+  color: var(--rose-ink);
   max-width: 650px;
   margin-bottom: 0;
   font-size: 17px;
@@ -803,18 +813,8 @@ textarea:focus-visible {
   display: block;
   margin-bottom: 18px;
 }
-.page-intro-dark {
-  background: #252a27;
-  color: white;
-}
-.page-intro-dark p {
-  color: #c9d0ca;
-}
-.page-intro-dark .breadcrumb {
-  color: #c1cac3;
-}
-.page-intro-dark .page-kicker {
-  color: #ee9295;
+.page-intro .page-kicker {
+  color: #ffc4c6;
 }
 .intro-split {
   display: grid;
@@ -993,7 +993,7 @@ textarea:focus-visible {
   }
 }
 .image-dialog::backdrop {
-  background: #151a17cc;
+  background: #241012ba;
 }
 .image-dialog > img {
   width: 100%;
@@ -1027,8 +1027,8 @@ textarea:focus-visible {
   gap: 25px;
 }
 .catalog-card {
-  border: 1px solid #ead2d3;
-  background: #fffafa;
+  border: 1px solid var(--line);
+  background: var(--rose-panel);
   padding: 22px;
   display: flex;
   flex-direction: column;
@@ -1054,24 +1054,16 @@ textarea:focus-visible {
 .catalog-card h3 {
   font-size: 21px;
   flex: 1;
-  color: #64191e;
-}
-.catalog-intro {
-  background: #711b21;
-  color: #fff;
-}
-.catalog-intro p,
-.catalog-intro .breadcrumb {
-  color: #f7e1e2;
+  color: var(--wine);
 }
 .catalog-navigation .filter-button {
-  color: #791e23;
-  background: #f9ebec;
-  border-color: #ead2d3;
+  color: var(--wine);
+  background: var(--soft);
+  border-color: var(--line);
 }
 .catalog-division > h2,
 .division-documents > h2 {
-  color: #791e23;
+  color: var(--wine);
 }
 .catalog-cover-image {
   width: 100%;
@@ -1093,7 +1085,7 @@ textarea:focus-visible {
   height: min(900px, calc(100dvh - 24px));
   max-height: none;
   padding: 0;
-  border: 1px solid #ead2d3;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
   color: var(--ink);
@@ -1116,15 +1108,16 @@ textarea:focus-visible {
   padding: 10px 16px;
 }
 .catalog-viewer-header {
-  background: #711b21;
+  background: var(--wine);
   color: #fff;
 }
 .catalog-viewer-header h2 {
+  color: inherit;
   font-size: clamp(17px, 3vw, 24px);
   margin: 0;
 }
 .catalog-toolbar {
-  background: #f9ebec;
+  background: var(--soft);
 }
 .catalog-control {
   display: inline-flex;
@@ -1133,10 +1126,10 @@ textarea:focus-visible {
   padding: 5px 9px;
   min-height: 44px;
   min-width: 36px;
-  border: 1px solid #ead2d3;
+  border: 1px solid var(--line);
   border-radius: 8px;
   background: white;
-  color: #711b21;
+  color: var(--wine);
   font-size: 14px;
 }
 .catalog-control:disabled {
@@ -1256,7 +1249,7 @@ textarea:focus-visible {
 .field textarea {
   width: 100%;
   background: #fff;
-  border: 1px solid #b8c1bb;
+  border: 1px solid #cc9fa2;
   border-radius: 10px;
   padding: 12px;
   min-height: 48px;
