@@ -1041,17 +1041,17 @@ textarea:focus-visible {
   background: #faf7f7;
   transform: translateY(-4px);
 }
-.catalog-card img {
-  height: 140px;
-  width: 100%;
-  object-fit: contain;
-  margin-bottom: 25px;
+.catalog-division + .catalog-division {
+  margin-top: 48px;
 }
-.catalog-card h2 {
-  font-size: 25px;
+.division-documents {
+  padding-top: 0;
 }
-.catalog-card p {
-  font-size: 14px;
+.division-documents > .text-link {
+  margin-top: 24px;
+}
+.catalog-card h3 {
+  font-size: 21px;
   flex: 1;
 }
 .catalog-card .text-link {
@@ -1446,22 +1446,6 @@ textarea:focus-visible {
   .catalog-grid {
     grid-template-columns: 1fr;
   }
-  .catalog-card {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    column-gap: 25px;
-  }
-  .catalog-card img {
-    grid-row: 1/4;
-    height: 150px;
-    margin-bottom: 0;
-  }
-  .catalog-card p {
-    margin-bottom: 10px;
-  }
-  .catalog-card .text-link {
-    justify-self: start;
-  }
   .contact-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
@@ -1750,13 +1734,6 @@ textarea:focus-visible {
   .catalog-card {
     display: flex;
     padding: 25px;
-  }
-  .catalog-card img {
-    height: 150px;
-    margin-bottom: 25px;
-  }
-  .catalog-card h2 {
-    font-size: 24px;
   }
   .form-grid {
     grid-template-columns: minmax(0, 1fr);

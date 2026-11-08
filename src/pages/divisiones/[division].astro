@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Arrow from "../../components/Arrow.astro";
+import CatalogList from "../../components/CatalogList.astro";
 import ContactBand from "../../components/ContactBand.astro";
 import { site } from "../../data";
 export function getStaticPaths() {
@@ -94,10 +95,14 @@ const i = site.divisions.findIndex((d) => d.slug === division.slug);
       <a class="text-link" href={`/proyectos/?division=${division.slug}`}>
         Ver aplicaciones <Arrow />
       </a>
-      <a class="text-link" href={`/catalogos/?division=${division.slug}`}>
-        Ver catálogos <Arrow />
-      </a>
     </div>
+  </section>
+  <section class="section container division-documents">
+    <h2>Catálogos y documentos</h2>
+    <CatalogList division={division.slug} />
+    <a class="text-link" href={`/catalogos/#${division.slug}`}>
+      Ver biblioteca de catálogos <Arrow />
+    </a>
   </section>
   <ContactBand />
 </Layout>

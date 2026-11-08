@@ -51,6 +51,10 @@
         {
           "name": "Branding en espacios",
           "description": "Aplicaciones gráficas para acompañar la identidad visual de tu empresa."
+        },
+        {
+          "name": "Tótems digitales interactivos",
+          "description": "Pantallas táctiles Full HD de 55 pulgadas con programación de contenido para espacios comerciales."
         }
       ]
     },
@@ -149,7 +153,43 @@
       "description": "Soluciones visuales sobre superficies de vidrio. Material del archivo visual de FAMA."
     }
   ],
-  "catalogs": [],
+  "catalogs": [
+    {
+      "name": "Tótem digital publicitario",
+      "division": "publicitaria",
+      "file": "/assets/catalogos/totem-digital-publicitario.pdf"
+    },
+    {
+      "name": "Oficina y escritura 2026",
+      "division": "promocional",
+      "file": "/assets/catalogos/oficina-y-escritura-2026.pdf"
+    },
+    {
+      "name": "Drinkware y hogar 2026",
+      "division": "promocional",
+      "file": "/assets/catalogos/drinkware-y-hogar-2026.pdf"
+    },
+    {
+      "name": "Tecnología, outdoor y corporativo 2026",
+      "division": "promocional",
+      "file": "/assets/catalogos/tecnologia-outdoor-corporativo-2026.pdf"
+    },
+    {
+      "name": "Bolsas FAMA 2026",
+      "division": "promocional",
+      "file": "/assets/catalogos/bolsas-fama-2026.pdf"
+    },
+    {
+      "name": "Catálogo de señalética",
+      "division": "promocional",
+      "file": "/assets/catalogos/senaletica-fama.pdf"
+    },
+    {
+      "name": "Brochure de Servicios Generales 2026",
+      "division": "servicios-generales",
+      "file": "/assets/catalogos/brochure-fama-2026.pdf"
+    }
+  ],
   "starHome": {
     "title": "Star Home",
     "description": "Una presentación diferenciada dentro de Servicios Generales.",

@@ -1,4 +1,4 @@
-import { site, type Catalog } from "../data";
+import { site } from "../data";
 
 function readPath(value: unknown, path: string): unknown {
   return path.split(".").reduce<unknown>((current, key) => {
@@ -325,34 +325,43 @@ export function initSite() {
         url.pathname = `/${content.contact.whatsapp}`;
         link.href = url.href;
       });
-    const catalogList = document.querySelector("#catalog-list");
-    if (catalogList && Array.isArray(content.catalogs)) {
-      content.catalogs.forEach((catalog: Catalog) => {
-        if (!safeLink(catalog.file)) return;
-        const card = document.createElement("article");
-        card.className = "catalog-card";
-        const heading = document.createElement("h2");
-        heading.textContent = catalog.name;
-        const detail = document.createElement("p");
-        detail.textContent =
-          content.divisions.find((d) => d.slug === catalog.division)?.name ||
-          "FAMA Negocios";
-        const link = document.createElement("a");
-        link.className = "text-link";
-        link.href = catalog.file;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = "Ver catálogo PDF ↗";
-        const download = document.createElement("a");
-        download.className = "text-link";
-        download.href = catalog.file;
-        download.download = "";
-        download.textContent = "Descargar PDF ↓";
-        card.append(heading, detail, link, download);
-        catalogList.prepend(card);
-      });
-      if (content.catalogs.length)
-        document.querySelector(".notice")?.setAttribute("hidden", "");
+    if (Array.isArray(content.catalogs)) {
+      document
+        .querySelectorAll<HTMLElement>("[data-catalog-group]")
+        .forEach((list) => {
+          const division = list.dataset.catalogGroup;
+          const catalogs = content.catalogs.filter(
+            (catalog) =>
+              catalog.division === division && safeLink(catalog.file),
+          );
+          const original = site.catalogs.filter(
+            (catalog) => catalog.division === division,
+          );
+          if (JSON.stringify(catalogs) === JSON.stringify(original)) return;
+          list.replaceChildren(
+            ...catalogs.map((catalog) => {
+              const card = document.createElement("article");
+              card.className = "catalog-card";
+              const heading = document.createElement("h3");
+              heading.textContent = catalog.name;
+              const link = document.createElement("a");
+              link.className = "text-link";
+              link.href = catalog.file;
+              link.target = "_blank";
+              link.rel = "noopener noreferrer";
+              link.textContent = "Ver PDF ↗";
+              const download = document.createElement("a");
+              download.className = "text-link";
+              download.href = catalog.file;
+              download.download = "";
+              download.textContent = "Descargar PDF ↓";
+              card.append(heading, link, download);
+              return card;
+            }),
+          );
+          const empty = list.nextElementSibling;
+          if (empty instanceof HTMLElement) empty.hidden = catalogs.length > 0;
+        });
     }
   }
   fetch("/content/site.json", { cache: "no-cache" })

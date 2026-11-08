@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Arrow from "../components/Arrow.astro";
-import { site, whatsapp } from "../data";
+import CatalogList from "../components/CatalogList.astro";
+import { site } from "../data";
 ---
 
 <Layout
   title="Catálogos por división"
-  description="Solicita los catálogos de FAMA Negocios según tu línea de interés."
+  description="Consulta y descarga los catálogos y fichas PDF de las tres divisiones de FAMA Negocios."
 >
   <section class="page-intro">
     <div class="container">
@@ -26,47 +26,28 @@ import { site, whatsapp } from "../data";
     </div>
   </section>
   <section class="section container">
-    <div class="catalog-grid" id="catalog-list">
-      {site.divisions.map((d, i) => (
-        <article class="catalog-card">
-          <img
-            data-content={`divisions.${i}.image`}
-            src={d.image}
-            alt={d.imageAlt}
-            width="350"
-            height="200"
-            loading="lazy"
-          />
-          <h2 data-content={`divisions.${i}.name`}>{d.name}</h2>
-          <p data-content={`divisions.${i}.description`}>{d.description}</p>
-          <a
-            class="text-link"
-            href={whatsapp(
-              `Hola, quisiera el catálogo vigente de la ${d.name}.`,
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Solicitar catálogo <Arrow diagonal />
-          </a>
-        </article>
+    <nav class="filters" aria-label="Divisiones de catálogos">
+      {site.divisions.map((division) => (
+        <a class="filter-button" href={`#${division.slug}`}>
+          {division.name}
+        </a>
       ))}
-    </div>
-    <div class="notice">
-      <p>
-        Solicita la versión vigente al equipo comercial. Los catálogos PDF
-        aprobados se incorporarán aquí para su visualización y descarga.
-      </p>
-    </div>
+    </nav>
+    {site.divisions.map((division, i) => (
+      <section class="catalog-division" id={division.slug}>
+        <h2 data-content={`divisions.${i}.name`}>{division.name}</h2>
+        <CatalogList division={division.slug} />
+      </section>
+    ))}
   </section>
   <section class="section container" style="padding-top:0">
     <div class="faq-section">
       <h2>Antes de elegir.</h2>
       <details>
-        <summary>¿Cómo solicito el catálogo de una división?</summary>
+        <summary>¿Cómo consulto el catálogo de una división?</summary>
         <p>
-          Selecciona «Solicitar catálogo». Se abrirá WhatsApp con un mensaje
-          dirigido al equipo comercial e indicando la división de tu interés.
+          Elige una división y selecciona «Ver PDF» para abrir el documento o
+          «Descargar PDF» para guardarlo.
         </p>
       </details>
       <details>

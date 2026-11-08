@@ -33,7 +33,6 @@ Las ediciones del panel son visibles con JavaScript al recargar. Para incorporar
 
 - Logo maestro y datos comerciales vigentes. Para la cabecera se utiliza el emblema del logo anterior acompañado del nombre en tipografía.
 - Clasificación final de productos y servicios por división, y autorización de imágenes. La galería muestra aplicaciones del archivo, sin atribuirlas a clientes específicos.
-- PDF vigentes de catálogos. Los enlaces antiguos apuntaban a visores externos y los PDF correspondientes no están en el respaldo revisado. La web permite solicitarlos por WhatsApp hasta su entrega.
 - Identidad, razón social y presentación aprobada de Star Home. Su sección está preparada con aviso de información pendiente.
 - Asesores comerciales por división. Por ahora las consultas se dirigen al número recuperado del respaldo.
 - Cuenta de Microsoft Clarity, correo del formulario y configuración del hosting. El panel PHP y el correo no se ejecutan en la publicación estática de revisión.
