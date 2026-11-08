@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import Arrow from "./Arrow.astro";
 const covers = site.catalogs.filter((catalog) => catalog.cover);
 ---
 {covers.length > 0 && (
@@ -11,9 +12,16 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
     </div>
     {covers.length > 1 && (
       <div class="cover-controls" hidden>
-        <button type="button" data-previous-cover aria-label="Portada anterior">←</button>
-        <button type="button" data-toggle-covers>Pausar</button>
-        <button type="button" data-next-cover aria-label="Portada siguiente">→</button>
+        <button type="button" data-previous-cover aria-label="Portada anterior"><Arrow /></button>
+        <button type="button" data-toggle-covers aria-label="Pausar">
+          <svg class="pause-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M6 3v10M10 3v10" />
+          </svg>
+          <svg class="play-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 3l8 5-8 5z" />
+          </svg>
+        </button>
+        <button type="button" data-next-cover aria-label="Portada siguiente"><Arrow /></button>
       </div>
     )}
   </div>
@@ -39,7 +47,8 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
 
     function syncRotation() {
       window.clearInterval(timer);
-      toggle!.textContent = paused ? "Reproducir" : "Pausar";
+      toggle!.setAttribute("aria-label", paused ? "Reproducir" : "Pausar");
+      toggle!.classList.toggle("is-paused", paused);
       if (visible && !paused && !document.hidden && !carousel!.matches(":hover, :focus-within")) {
         timer = window.setInterval(() => showCover(1), 5000);
       }
@@ -90,17 +99,31 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
   .cover-controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    margin-top: 10px;
+    justify-content: center;
+    margin-top: 4px;
   }
   button {
     min-height: 44px;
     min-width: 44px;
-    padding: 4px 9px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: white;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
     color: var(--wine);
+  }
+  button:hover {
+    background: var(--line);
+  }
+  [data-previous-cover] :global(svg) {
+    transform: rotate(180deg);
+  }
+  .play-icon,
+  .is-paused .pause-icon {
+    display: none;
+  }
+  .is-paused .play-icon {
+    display: block;
   }
 </style>
