@@ -7,7 +7,7 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
   <div class="catalog-covers" aria-label="Portadas de los catálogos">
     <div class="cover-frame">
       {covers.map((catalog, index) => (
-        <img src={catalog.cover} alt={`Portada de ${catalog.name}`} width="220" height="310" loading="lazy" hidden={index > 0} />
+        <img src={catalog.cover} alt={`Portada de ${catalog.name}`} width="220" height="310" loading="lazy" class:list={{ "is-current": index === 0 }} aria-hidden={index > 0 ? "true" : undefined} />
       ))}
     </div>
     {covers.length > 1 && (
@@ -40,9 +40,11 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
     let timer: number | undefined;
 
     function showCover(offset: number) {
-      covers[index].hidden = true;
+      covers[index].classList.remove("is-current");
+      covers[index].setAttribute("aria-hidden", "true");
       index = (index + offset + covers.length) % covers.length;
-      covers[index].hidden = false;
+      covers[index].classList.add("is-current");
+      covers[index].removeAttribute("aria-hidden");
     }
 
     function syncRotation() {
@@ -50,7 +52,7 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
       toggle!.setAttribute("aria-label", paused ? "Reproducir" : "Pausar");
       toggle!.classList.toggle("is-paused", paused);
       if (visible && !paused && !document.hidden && !carousel!.matches(":hover, :focus-within")) {
-        timer = window.setInterval(() => showCover(1), 5000);
+        timer = window.setInterval(() => showCover(1), 2000);
       }
     }
 
@@ -85,6 +87,7 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
     justify-self: center;
   }
   .cover-frame {
+    display: grid;
     aspect-ratio: 220 / 310;
     border: 1px solid var(--line);
     border-radius: 4px;
@@ -94,7 +97,18 @@ const covers = site.catalogs.filter((catalog) => catalog.cover);
   img {
     width: 100%;
     height: 100%;
+    grid-area: 1 / 1;
     object-fit: contain;
+    opacity: 0;
+    transition: opacity 600ms ease-in-out;
+  }
+  img.is-current {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    img {
+      transition: none;
+    }
   }
   .cover-controls {
     display: flex;
