@@ -345,17 +345,29 @@ export function initSite() {
               const heading = document.createElement("h3");
               heading.textContent = catalog.name;
               const link = document.createElement("a");
-              link.className = "text-link";
+              link.className = "button button-small";
               link.href = catalog.file;
+              link.dataset.catalogPreview = catalog.name;
               link.target = "_blank";
               link.rel = "noopener noreferrer";
-              link.textContent = "Ver PDF ↗";
+              link.textContent = "Vista previa";
               const download = document.createElement("a");
               download.className = "text-link";
               download.href = catalog.file;
               download.download = "";
               download.textContent = "Descargar PDF ↓";
-              card.append(heading, link, download);
+              if (catalog.cover && safeLink(catalog.cover)) {
+                const cover = document.createElement("img");
+                cover.className = "catalog-cover-image";
+                cover.src = catalog.cover;
+                cover.alt = "";
+                cover.loading = "lazy";
+                card.append(cover);
+              }
+              const actions = document.createElement("div");
+              actions.className = "catalog-actions";
+              actions.append(link, download);
+              card.append(heading, actions);
               return card;
             }),
           );

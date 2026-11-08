@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CatalogList from "../components/CatalogList.astro";
+import CatalogViewer from "../components/CatalogViewer.astro";
 import { site } from "../data";
 ---
 
@@ -8,7 +9,7 @@ import { site } from "../data";
   title="Catálogos por división"
   description="Consulta y descarga los catálogos y fichas PDF de las tres divisiones de FAMA Negocios."
 >
-  <section class="page-intro">
+  <section class="page-intro catalog-intro">
     <div class="container">
       <div class="breadcrumb">
         <a href="/">Inicio</a>
@@ -26,7 +27,7 @@ import { site } from "../data";
     </div>
   </section>
   <section class="section container">
-    <nav class="filters" aria-label="Divisiones de catálogos">
+    <nav class="filters catalog-navigation" aria-label="Divisiones de catálogos">
       {site.divisions.map((division) => (
         <a class="filter-button" href={`#${division.slug}`}>
           {division.name}
@@ -46,7 +47,7 @@ import { site } from "../data";
       <details>
         <summary>¿Cómo consulto el catálogo de una división?</summary>
         <p>
-          Elige una división y selecciona «Ver PDF» para abrir el documento o
+          Elige una división y selecciona «Vista previa» para consultar el documento o
           «Descargar PDF» para guardarlo.
         </p>
       </details>
@@ -67,4 +68,5 @@ import { site } from "../data";
       </details>
     </div>
   </section>
+  <CatalogViewer />
 </Layout>

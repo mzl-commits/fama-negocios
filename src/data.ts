@@ -4,6 +4,7 @@ export interface Catalog {
   name: string;
   division: string;
   file: string;
+  cover?: string;
 }
 export const site = { ...content, catalogs: content.catalogs as Catalog[] };
 export type Division = (typeof site.divisions)[number];

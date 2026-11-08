@@ -157,37 +157,44 @@
     {
       "name": "Tótem digital publicitario",
       "division": "publicitaria",
-      "file": "/assets/catalogos/totem-digital-publicitario.pdf"
+      "file": "/assets/catalogos/totem-digital-publicitario.pdf",
+      "cover": "/assets/catalogos/totem-digital-publicitario.jpg"
     },
     {
       "name": "Oficina y escritura 2026",
       "division": "promocional",
-      "file": "/assets/catalogos/oficina-y-escritura-2026.pdf"
+      "file": "/assets/catalogos/oficina-y-escritura-2026.pdf",
+      "cover": "/assets/catalogos/oficina-y-escritura-2026.jpg"
     },
     {
       "name": "Drinkware y hogar 2026",
       "division": "promocional",
-      "file": "/assets/catalogos/drinkware-y-hogar-2026.pdf"
+      "file": "/assets/catalogos/drinkware-y-hogar-2026.pdf",
+      "cover": "/assets/catalogos/drinkware-y-hogar-2026.jpg"
     },
     {
       "name": "Tecnología, outdoor y corporativo 2026",
       "division": "promocional",
-      "file": "/assets/catalogos/tecnologia-outdoor-corporativo-2026.pdf"
+      "file": "/assets/catalogos/tecnologia-outdoor-corporativo-2026.pdf",
+      "cover": "/assets/catalogos/tecnologia-outdoor-corporativo-2026.jpg"
     },
     {
       "name": "Bolsas FAMA 2026",
       "division": "promocional",
-      "file": "/assets/catalogos/bolsas-fama-2026.pdf"
+      "file": "/assets/catalogos/bolsas-fama-2026.pdf",
+      "cover": "/assets/catalogos/bolsas-fama-2026.jpg"
     },
     {
       "name": "Catálogo de señalética",
       "division": "promocional",
-      "file": "/assets/catalogos/senaletica-fama.pdf"
+      "file": "/assets/catalogos/senaletica-fama.pdf",
+      "cover": "/assets/catalogos/senaletica-fama.jpg"
     },
     {
       "name": "Brochure de Servicios Generales 2026",
       "division": "servicios-generales",
-      "file": "/assets/catalogos/brochure-fama-2026.pdf"
+      "file": "/assets/catalogos/brochure-fama-2026.pdf",
+      "cover": "/assets/catalogos/brochure-fama-2026.jpg"
     }
   ],
   "starHome": {

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Arrow from "../../components/Arrow.astro";
 import CatalogList from "../../components/CatalogList.astro";
+import CatalogViewer from "../../components/CatalogViewer.astro";
 import ContactBand from "../../components/ContactBand.astro";
 import { site } from "../../data";
 export function getStaticPaths() {
@@ -105,4 +106,5 @@ const i = site.divisions.findIndex((d) => d.slug === division.slug);
     </a>
   </section>
   <ContactBand />
+  <CatalogViewer />
 </Layout>

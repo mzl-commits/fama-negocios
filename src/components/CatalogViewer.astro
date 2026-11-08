@@ -1,0 +1,26 @@
+<dialog class="catalog-viewer" aria-labelledby="catalog-viewer-title">
+  <header class="catalog-viewer-header">
+    <h2 id="catalog-viewer-title"></h2>
+    <form method="dialog"><button class="catalog-control" aria-label="Cerrar vista previa">Cerrar ×</button></form>
+  </header>
+  <div class="catalog-toolbar">
+    <div class="catalog-controls" role="group" aria-label="Páginas">
+      <button class="catalog-control" data-previous aria-label="Página anterior" disabled>←</button>
+      <span data-page-number aria-live="polite"></span>
+      <button class="catalog-control" data-next aria-label="Página siguiente" disabled>→</button>
+    </div>
+    <div class="catalog-controls" role="group" aria-label="Zoom y descarga">
+      <button class="catalog-control" data-zoom-out aria-label="Alejar" disabled>−</button>
+      <button class="catalog-control" data-zoom-in aria-label="Acercar" disabled>+</button>
+      <a class="catalog-control" data-viewer-download download>Descargar PDF</a>
+    </div>
+  </div>
+  <p class="catalog-viewer-status" role="status"></p>
+  <div class="catalog-paper" tabindex="0" aria-label="Página del PDF">
+    <canvas hidden role="img" aria-label="Vista previa de la página"></canvas>
+  </div>
+</dialog>
+<script>
+  import { initCatalogViewer } from "../scripts/catalog-viewer";
+  initCatalogViewer();
+</script>

@@ -13,18 +13,22 @@ const catalogs = site.catalogs.filter(
 <div class="catalog-grid" data-catalog-group={division}>
   {catalogs.map((catalog) => (
     <article class="catalog-card">
+      {catalog.cover && <img class="catalog-cover-image" src={catalog.cover} alt="" loading="lazy" width="300" height="420" />}
       <h3>{catalog.name}</h3>
+      <div class="catalog-actions">
       <a
-        class="text-link"
+        class="button button-small"
         href={catalog.file}
+        data-catalog-preview={catalog.name}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Ver PDF ↗
+        Vista previa
       </a>
       <a class="text-link" href={catalog.file} download>
         Descargar PDF ↓
       </a>
+      </div>
     </article>
   ))}
 </div>
