@@ -5,13 +5,13 @@
     "logo": "/assets/logo.webp"
   },
   "home": {
-    "title": "Merchandising y comunicación visual.",
-    "description": "Comunicación visual, merchandising y soluciones para los espacios de tu empresa.",
+    "title": "Merchandising y comunicación visual",
+    "description": "Exhibidores, artículos promocionales y servicios de acondicionamiento para oficinas y locales comerciales.",
     "image": "/assets/espacios.webp"
   },
   "about": {
     "title": "Conoce FAMA Negocios.",
-    "text": "En FAMA Negocios reunimos productos, materiales y soluciones para acompañar los objetivos de empresas y organizaciones. Nuestra propuesta conecta la comunicación visual, el merchandising y los espacios de trabajo.",
+    "text": "Trabajamos con empresas que necesitan material publicitario, productos promocionales o servicios para sus espacios comerciales.",
     "approach": "Seleccionamos marcas, suministros y materiales para desarrollar propuestas con creatividad, variedad y calidad. Escuchamos lo que necesitas para orientar cada solicitud hacia la solución adecuada."
   },
   "contact": {
