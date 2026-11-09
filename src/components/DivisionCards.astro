@@ -1,0 +1,20 @@
+---
+import Arrow from "./Arrow.astro";
+import { site } from "../data";
+
+const { onHome = false } = Astro.props;
+const Heading = onHome ? "h3" : "h2";
+---
+
+<div class="division-cards">
+  {site.divisions.map((division, index) => (
+    <a class="division-card" href={`/divisiones/${division.slug}/`}>
+      <div class="division-image">
+        <img data-content={`divisions.${index}.image`} src={division.image} alt={division.imageAlt} width="330" height="450" loading="lazy" />
+      </div>
+      <Heading><span data-content={`divisions.${index}.name`}>{division.name}</span><Arrow diagonal /></Heading>
+      <p data-content={`divisions.${index}.short`}>{division.short}</p>
+      {!onHome && <p data-content={`divisions.${index}.description`}>{division.description}</p>}
+    </a>
+  ))}
+</div>

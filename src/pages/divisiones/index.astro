@@ -1,8 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Arrow from "../../components/Arrow.astro";
+import DivisionCards from "../../components/DivisionCards.astro";
 import ContactBand from "../../components/ContactBand.astro";
-import { site } from "../../data";
 ---
 
 <Layout
@@ -28,35 +27,7 @@ import { site } from "../../data";
     </div>
   </section>
   <section class="section container">
-    <div class="division-list">
-      {site.divisions.map((d, i) => (
-        <a class="division-row" href={`/divisiones/${d.slug}/`}>
-          <div>
-            <h2 class="division-title" data-content={`divisions.${i}.name`}>
-              {d.name}
-            </h2>
-            <p class="division-summary" data-content={`divisions.${i}.short`}>
-              {d.short}
-            </p>
-            <p data-content={`divisions.${i}.description`}>{d.description}</p>
-            <span class="division-action">
-              Explorar división <Arrow />
-            </span>
-          </div>
-          <img
-            data-content={`divisions.${i}.image`}
-            src={d.image}
-            alt={d.imageAlt}
-            width="330"
-            height="200"
-            loading="lazy"
-          />
-          <span class="round-arrow">
-            <Arrow diagonal />
-          </span>
-        </a>
-      ))}
-    </div>
+    <DivisionCards />
   </section>
   <ContactBand />
 </Layout>

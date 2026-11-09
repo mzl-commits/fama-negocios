@@ -29,12 +29,12 @@ export function initSite() {
       },
     );
   }
-  document.querySelectorAll(".hero-copy > *").forEach((element, index) => {
+  document.querySelectorAll(".home-hero-copy > *").forEach((element, index) => {
     animateIn(element, index * 100);
   });
   const revealItems = Array.from(
     document.querySelectorAll(
-      ".division-row, .project-preview, .process-list li",
+      ".division-card, .project-preview, .process-list li",
     ),
   );
   const revealObserver = new IntersectionObserver(
@@ -65,6 +65,7 @@ export function initSite() {
     menuButton.setAttribute("aria-expanded", String(open));
     menuButton.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
   });
+  nav?.querySelector('a[href="/#como-cotizar"]')?.addEventListener("click", closeMenu);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
   });
